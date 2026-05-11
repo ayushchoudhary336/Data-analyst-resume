@@ -20,13 +20,16 @@ export default function HeroSection() {
       setIsDeleting(false);
       setCurrentRoleIndex((prev) => (prev + 1) % ROLES.length);
     } else {
-      timeout = setTimeout(() => {
-        setCurrentText((prev) =>
-          isDeleting
-            ? role.substring(0, prev.length - 1)
-            : role.substring(0, prev.length + 1)
-        );
-      }, isDeleting ? 50 : 100);
+      timeout = setTimeout(
+        () => {
+          setCurrentText((prev) =>
+            isDeleting
+              ? role.substring(0, prev.length - 1)
+              : role.substring(0, prev.length + 1),
+          );
+        },
+        isDeleting ? 50 : 100,
+      );
     }
 
     return () => clearTimeout(timeout);
@@ -53,7 +56,7 @@ export default function HeroSection() {
         <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 mb-6 drop-shadow-lg">
           Ayush Kumar Choudhary
         </h1>
-        
+
         <div className="h-12 mb-8">
           <p className="text-2xl md:text-4xl font-light text-gray-300 flex items-center justify-center">
             <span className="mr-2">I am a</span>
@@ -65,13 +68,15 @@ export default function HeroSection() {
         </div>
 
         <p className="max-w-2xl text-gray-400 mb-10 text-lg md:text-xl mx-auto leading-relaxed">
-          B.Tech CSE final year student at Galgotias University, passionate about transforming raw data into actionable business insights.
+          B.Tech CSE final year student at Galgotias University, passionate
+          about transforming raw data into actionable business insights.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <motion.a
-            href="/resume.pdf"
-            download="Ayush_Kumar_Choudhary_Resume.pdf"
+            href="#"
+            // download="Ayush_Kumar_Choudhary_Resume.pdf"
+            // To enable: set href="/resume.pdf" and uncomment download attribute
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-medium flex items-center justify-center transition-colors shadow-lg shadow-emerald-500/30"
